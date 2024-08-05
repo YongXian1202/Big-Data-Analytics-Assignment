@@ -14,7 +14,7 @@ def process_file(input_file):
     # Start counting time
     start_time = time.time()
 
-    # Mapper: process input and collect intermediate key-value pairs
+    # Process input and collect intermediate key-value pairs
     intermediate_data = []
 
     with open(input_file, 'r') as f:
@@ -36,7 +36,7 @@ def process_file(input_file):
             else:
                 print(f"Skipping line with insufficient columns: {line}")
 
-    # Reducer: aggregate and process intermediate data
+    # Aggregate data
     print("Aggregating data...")
     county_make_count = defaultdict(lambda: defaultdict(int))
 
@@ -65,5 +65,4 @@ if __name__ == "__main__":
     # Print results
     for county, make, count in sorted(results):
         print(f"{county}\t{make}\t{count}")
-
 
